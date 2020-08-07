@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
+  @Input() age: number;
+  @Output() clickAge = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClickSave(){
+    this.clickAge.emit('Hiciste click');
   }
 
 }

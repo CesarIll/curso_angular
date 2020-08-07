@@ -1,4 +1,11 @@
 Prueba
 
 <app-test></app-test>
-<app-test2></app-test2>
+
+<div style="border: 1px solid red;">
+  <app-test age="3" (clickAge)="saveClickChild($event)"></app-test>
+</div>
+
+<div style="border: 1px solid red;">
+  <app-component-input-output name="Cesar" age="20" description="Persona viva" (click)="print($event)"></app-component-input-output>
+</div>
