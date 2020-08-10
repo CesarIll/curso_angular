@@ -9,3 +9,6 @@ Prueba
 <div style="border: 1px solid red;">
   <app-component-input-output name="Cesar" age="20" description="Persona viva" (click)="print($event)"></app-component-input-output>
 </div>
+
+<app-ciclos-de-vida *ngIf="sw" name="Cesar"> </app-ciclos-de-vida>
+<button (click)="sw = !sw;">Change sw</button>
