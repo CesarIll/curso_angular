@@ -14,3 +14,7 @@ Prueba
 <button (click)="sw = !sw;">Change sw</button>
 
 <app-solo-ts></app-solo-ts>
+
+<div *ngFor="let person of persons; let i = index">
+  <p>{{person}}-------------{{i}}</p>
+</div>
