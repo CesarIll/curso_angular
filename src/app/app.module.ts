@@ -6,13 +6,15 @@ import { TestComponent } from './test/test.component';
 import { ComponentInputOutputComponent } from './component-input-output/component-input-output.component';
 import { CiclosDeVidaComponent } from './ciclos-de-vida/ciclos-de-vida.component';
 import {FormsModule} from '@angular/forms';
+import { SoloTsComponent } from './solo-ts/solo-ts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     ComponentInputOutputComponent,
-    CiclosDeVidaComponent
+    CiclosDeVidaComponent,
+    SoloTsComponent
   ],
   imports: [
     BrowserModule,
