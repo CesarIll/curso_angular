@@ -7,6 +7,7 @@ import { ComponentInputOutputComponent } from './component-input-output/componen
 import { CiclosDeVidaComponent } from './ciclos-de-vida/ciclos-de-vida.component';
 import {FormsModule} from '@angular/forms';
 import { SoloTsComponent } from './solo-ts/solo-ts.component';
+import { PersonaComponent } from './persona/persona.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SoloTsComponent } from './solo-ts/solo-ts.component';
     TestComponent,
     ComponentInputOutputComponent,
     CiclosDeVidaComponent,
-    SoloTsComponent
+    SoloTsComponent,
+    PersonaComponent
   ],
   imports: [
     BrowserModule,

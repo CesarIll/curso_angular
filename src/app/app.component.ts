@@ -9,10 +9,33 @@ import {from, fromEvent} from 'rxjs';
 export class AppComponent implements OnInit{
   title = 'curso-angular';
   sw = true;
-  persons = ['Manuel', 'Pepe', 'Persona Genérica 1', 'Persona Genérica 2'];
+  personsName = ['Manuel', 'Pepe', 'Persona Genérica 1', 'Persona Genérica 2'];
   switch = 2;
   styleColor = 'red';
   class = true;
+  persons = [
+    {
+      name: 'Cesar',
+      lastName: 'Illanes',
+      age: 20,
+      enabled: true
+    }, {
+      name: 'Juan',
+      lastName: 'Perez',
+      age: 21,
+      enabled: false
+    }, {
+      name: 'José',
+      lastName: 'José',
+      age: 27,
+      enabled: true
+    }, {
+      name: 'Luis',
+      lastName: 'Rodriguez',
+      age: 28,
+      enabled: true
+    }
+  ];
 
   ngOnInit(){
     // const array = from([1, 2, 3, 4, 5, 6]);

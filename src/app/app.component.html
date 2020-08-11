@@ -15,7 +15,7 @@ Prueba
 
 <app-solo-ts></app-solo-ts>
 
-<div *ngFor="let person of persons; let i = index">
+<div *ngFor="let person of personsName; let i = index">
   <p>{{person}}-------------{{i}}</p>
 </div>
 
@@ -49,3 +49,14 @@ Prueba
 <div [class.test1]="class">
   Ejemplo "class.test1"
 </div>
+
+<div *ngFor="let person of persons">
+  <div [ngStyle]="{'background': person.age < 21 ? 'green' : 'blue'}">
+    <app-persona [name]="person.name"
+                 [lastName]="person.lastName"
+                 [age]="person.age"
+                 [enabled]="person.enabled">
+    </app-persona>
+  </div>
+</div>
+
