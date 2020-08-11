@@ -25,3 +25,18 @@ Prueba
   <p *ngSwitchCase="2">Case 2: El valor es 2</p>
   <p *ngSwitchDefault>Case 3: Es cualquier otro valor</p>
 </div>
+
+<div style="border: 1px solid green; color: pink">
+  <p>Style regular</p>
+</div>
+
+<div [ngStyle]="{'border': '1px solid ' + styleColor, 'color': styleColor}">
+  <p>Style con Angular</p>
+  <button (click)="styleColor='red'">rojo</button>
+  <button (click)="styleColor='yellow'">amarillo</button>
+  <button (click)="styleColor='green'">verde</button>
+</div>
+
+<div [style.color]="styleColor" [style.border]="'1px solid blue'">
+  Autos
+</div>
