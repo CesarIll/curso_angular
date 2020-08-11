@@ -10,6 +10,7 @@ export class AppComponent implements OnInit{
   title = 'curso-angular';
   sw = true;
   persons = ['Manuel', 'Pepe', 'Persona Genérica 1', 'Persona Genérica 2'];
+  switch = 2;
 
   ngOnInit(){
     // const array = from([1, 2, 3, 4, 5, 6]);

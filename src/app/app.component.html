@@ -18,3 +18,10 @@ Prueba
 <div *ngFor="let person of persons; let i = index">
   <p>{{person}}-------------{{i}}</p>
 </div>
+
+<div style="border: 1px solid blue" [ngSwitch]="switch">
+  <p>Switch</p>
+  <p *ngSwitchCase="3">Case 1: El valor es 3</p>
+  <p *ngSwitchCase="2">Case 2: El valor es 2</p>
+  <p *ngSwitchDefault>Case 3: Es cualquier otro valor</p>
+</div>
