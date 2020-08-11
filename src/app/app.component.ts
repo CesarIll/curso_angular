@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   persons = ['Manuel', 'Pepe', 'Persona Genérica 1', 'Persona Genérica 2'];
   switch = 2;
   styleColor = 'red';
+  class = true;
 
   ngOnInit(){
     // const array = from([1, 2, 3, 4, 5, 6]);

@@ -40,3 +40,12 @@ Prueba
 <div [style.color]="styleColor" [style.border]="'1px solid blue'">
   Autos
 </div>
+
+<div [ngClass]="{'test1': class, 'test2': !class}">
+  <p>Ejemplo ngClass</p>
+  <button (click)="class = !class">Cambiar clase</button>
+</div>
+
+<div [class.test1]="class">
+  Ejemplo "class.test1"
+</div>
