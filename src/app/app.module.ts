@@ -8,6 +8,7 @@ import { CiclosDeVidaComponent } from './components/ciclos-de-vida/ciclos-de-vid
 import {FormsModule} from '@angular/forms';
 import { SoloTsComponent } from './components/solo-ts/solo-ts.component';
 import {PersonaModule} from './module/persona-module/persona.module';
+import {ProductModule} from './module/product/product.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {PersonaModule} from './module/persona-module/persona.module';
   imports: [
     BrowserModule,
     FormsModule,
-    PersonaModule
+    PersonaModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]
