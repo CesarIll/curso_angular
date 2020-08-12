@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
-import { ComponentInputOutputComponent } from './component-input-output/component-input-output.component';
-import { CiclosDeVidaComponent } from './ciclos-de-vida/ciclos-de-vida.component';
+import { TestComponent } from './components/test/test.component';
+import { ComponentInputOutputComponent } from './components/component-input-output/component-input-output.component';
+import { CiclosDeVidaComponent } from './components/ciclos-de-vida/ciclos-de-vida.component';
 import {FormsModule} from '@angular/forms';
-import { SoloTsComponent } from './solo-ts/solo-ts.component';
-import { PersonaComponent } from './persona/persona.component';
+import { SoloTsComponent } from './components/solo-ts/solo-ts.component';
+import {PersonaModule} from './module/persona-module/persona.module';
 
 @NgModule({
   declarations: [
@@ -15,12 +15,12 @@ import { PersonaComponent } from './persona/persona.component';
     TestComponent,
     ComponentInputOutputComponent,
     CiclosDeVidaComponent,
-    SoloTsComponent,
-    PersonaComponent
+    SoloTsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    PersonaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
