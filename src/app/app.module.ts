@@ -9,6 +9,8 @@ import {FormsModule} from '@angular/forms';
 import { SoloTsComponent } from './components/solo-ts/solo-ts.component';
 import {PersonaModule} from './module/persona-module/persona.module';
 import {ProductModule} from './module/product/product.module';
+import {AdminModule} from './module/admin/admin.module';
+import {UserModule} from './module/user/user.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {ProductModule} from './module/product/product.module';
     BrowserModule,
     FormsModule,
     PersonaModule,
-    ProductModule
+    ProductModule,
+    AdminModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
