@@ -64,10 +64,22 @@
 <app-prod2></app-prod2>
 <app-prod3></app-prod3>
 
--->
+
 
 <app-ad1></app-ad1>
 <app-us1></app-us1>
 <app-ad2></app-ad2>
 <app-us2></app-us2>
 <app-ad3></app-ad3>
+
+-->
+
+<div style="border: 1px solid black">
+  <p>Pipes</p>
+  <p>Pipe Json: {{persons | json}}</p>
+  <p>Pipe Uppercase: {{'cesar' | uppercase}}</p>
+  <p>Pipe Lowercase: {{'CESAR' | lowercase}}</p>
+  <p>Pipe Date: {{'08/08/2020' | date: 'MM/dd/yy h:mm:ss'}}</p>
+  <p>Pipe Test: {{'Cesar' | test}}</p>
+
+</div>

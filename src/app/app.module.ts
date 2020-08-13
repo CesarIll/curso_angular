@@ -11,6 +11,7 @@ import {PersonaModule} from './module/persona-module/persona.module';
 import {ProductModule} from './module/product/product.module';
 import {AdminModule} from './module/admin/admin.module';
 import {UserModule} from './module/user/user.module';
+import { TestPipe } from './pipes/test.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {UserModule} from './module/user/user.module';
     TestComponent,
     ComponentInputOutputComponent,
     CiclosDeVidaComponent,
-    SoloTsComponent
+    SoloTsComponent,
+    TestPipe
   ],
   imports: [
     BrowserModule,
