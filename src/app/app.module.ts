@@ -12,6 +12,7 @@ import {ProductModule} from './module/product/product.module';
 import {AdminModule} from './module/admin/admin.module';
 import {UserModule} from './module/user/user.module';
 import { TestPipe } from './pipes/test.pipe';
+import { ExpoPipe } from './pipes/expo.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TestPipe } from './pipes/test.pipe';
     ComponentInputOutputComponent,
     CiclosDeVidaComponent,
     SoloTsComponent,
-    TestPipe
+    TestPipe,
+    ExpoPipe
   ],
   imports: [
     BrowserModule,
