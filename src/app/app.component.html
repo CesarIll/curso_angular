@@ -84,5 +84,10 @@
 
   Value: <input type="text" [(ngModel)]="base">
   Exponent: <input type="text" [(ngModel)]="exponent">
-  <p>{{exponent | expo: base: 'Hola'}}</p>
+  <p>{{base | expo: exponent: 'Hola'}}</p>
+
+  <p>Pure: {{numbers | pure}}</p>
+  <p>Impure: {{numbers | impure}}</p>
+
+  <button (click)="numbers.push(12)">Add</button>
 </div>

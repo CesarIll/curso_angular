@@ -13,6 +13,8 @@ import {AdminModule} from './module/admin/admin.module';
 import {UserModule} from './module/user/user.module';
 import { TestPipe } from './pipes/test.pipe';
 import { ExpoPipe } from './pipes/expo.pipe';
+import { PurePipe } from './pipes/pure.pipe';
+import { ImpurePipe } from './pipes/impure.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ExpoPipe } from './pipes/expo.pipe';
     CiclosDeVidaComponent,
     SoloTsComponent,
     TestPipe,
-    ExpoPipe
+    ExpoPipe,
+    PurePipe,
+    ImpurePipe
   ],
   imports: [
     BrowserModule,

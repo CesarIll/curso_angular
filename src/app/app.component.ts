@@ -36,8 +36,9 @@ export class AppComponent implements OnInit{
       enabled: true
     }
   ];
-  base: number = 3;
-  exponent: number = 2;
+  base = 3;
+  exponent = 2;
+  numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   ngOnInit(){
     // const array = from([1, 2, 3, 4, 5, 6]);
@@ -45,6 +46,9 @@ export class AppComponent implements OnInit{
 
     // const aux = fromEvent(document, 'mousemove');
     // aux.subscribe((s:any) => console.log('Event: ', s.clientX + ', '+ s.clientY));
+
+    console.log('PURA: ', this.pura(126,2));
+    console.log('IMPURA: ', this.impura(2, 7));
   }
 
   // saveClickChild(event){
@@ -54,4 +58,12 @@ export class AppComponent implements OnInit{
   // print(event){
   //   console.log('Persona: ', event);
   // }
+
+  pura(a: number, b: number) {
+    return a + b;
+  }
+
+  impura(a: number, b: number) {
+    return a + b + Math.random();
+  }
 }
