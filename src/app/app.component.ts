@@ -36,6 +36,8 @@ export class AppComponent implements OnInit{
       enabled: true
     }
   ];
+  base: number = 3;
+  exponent: number = 2;
 
   ngOnInit(){
     // const array = from([1, 2, 3, 4, 5, 6]);
@@ -45,11 +47,11 @@ export class AppComponent implements OnInit{
     // aux.subscribe((s:any) => console.log('Event: ', s.clientX + ', '+ s.clientY));
   }
 
-  saveClickChild(event){
-    console.log('Event Child: ', event);
-  }
+  // saveClickChild(event){
+  //  console.log('Event Child: ', event);
+  // }
 
-  print(event){
-    console.log('Persona: ', event);
-  }
+  // print(event){
+  //   console.log('Persona: ', event);
+  // }
 }

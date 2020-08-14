@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ExpoPipe implements PipeTransform {
 
-  transform(value: number, exponent?: number): unknown {
-    return Math.pow(value, isNaN(exponent) ? 1 : exponent);
+  transform(value: number, exponent?: number, word?: string): unknown {
+    return word + ' ' + Math.pow(value, isNaN(exponent) ? 1 : exponent);
   }
 
 }
