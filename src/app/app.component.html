@@ -92,8 +92,13 @@
   <button (click)="numbers.push(12)">Add</button>
 </div>
 
--->
+
 
 <div [appNgColor]="'green'" [secondColor]="'yellow'">
   <p>Directives</p>
 </div>
+
+-->
+
+<app-get-set-input [name]="name" [lastname]="lastname"></app-get-set-input>
+<button (click)="name = 'juan'; lastname='perez'">Change name and last name</button>

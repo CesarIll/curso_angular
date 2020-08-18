@@ -16,6 +16,7 @@ import { ExpoPipe } from './pipes/expo.pipe';
 import { PurePipe } from './pipes/pure.pipe';
 import { ImpurePipe } from './pipes/impure.pipe';
 import { NgColorDirective } from './directives/ng-color.directive';
+import { GetSetInputComponent } from './components/get-set-input/get-set-input.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NgColorDirective } from './directives/ng-color.directive';
     ExpoPipe,
     PurePipe,
     ImpurePipe,
-    NgColorDirective
+    NgColorDirective,
+    GetSetInputComponent
   ],
   imports: [
     BrowserModule,

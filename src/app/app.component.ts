@@ -39,6 +39,8 @@ export class AppComponent implements OnInit{
   base = 3;
   exponent = 2;
   numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  name = 'Cesar';
+  lastname = 'Illanes';
 
   ngOnInit(){
     // const array = from([1, 2, 3, 4, 5, 6]);
