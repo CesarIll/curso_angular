@@ -98,7 +98,13 @@
   <p>Directives</p>
 </div>
 
--->
+
 
 <app-get-set-input [name]="name" [lastname]="lastname"></app-get-set-input>
 <button (click)="name = 'juan'; lastname='perez'">Change name and last name</button>
+
+-->
+
+<div style="border: 1px solid green;" (appNgFocus)="name = 'Palabra'">
+  {{name}}
+</div>

@@ -17,6 +17,7 @@ import { PurePipe } from './pipes/pure.pipe';
 import { ImpurePipe } from './pipes/impure.pipe';
 import { NgColorDirective } from './directives/ng-color.directive';
 import { GetSetInputComponent } from './components/get-set-input/get-set-input.component';
+import { NgFocusDirective } from './directives/ng-focus.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GetSetInputComponent } from './components/get-set-input/get-set-input.c
     PurePipe,
     ImpurePipe,
     NgColorDirective,
-    GetSetInputComponent
+    GetSetInputComponent,
+    NgFocusDirective
   ],
   imports: [
     BrowserModule,
