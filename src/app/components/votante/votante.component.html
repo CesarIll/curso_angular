@@ -1,0 +1,6 @@
+<div style="background: {{habilitado ? 'orange' : 'red'}}; ">
+  <p>Nombre: {{nombre | uppercase}}</p>
+  <p>Edad: {{edad}}</p>
+  <p>Habilitado: {{habilitado ? "Sí" : "No"}}</p>
+  <button [disabled]="!habilitado">Votar</button>
+</div>
