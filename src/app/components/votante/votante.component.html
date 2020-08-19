@@ -1,6 +1,6 @@
-<div style="background: {{habilitado ? 'orange' : 'red'}}; ">
+<div *ngIf="!voto" style="background: {{habilitado ? 'orange' : 'red'}}; width: 300px; margin: 10px">
   <p>Nombre: {{nombre | uppercase}}</p>
   <p>Edad: {{edad}}</p>
   <p>Habilitado: {{habilitado ? "Sí" : "No"}}</p>
-  <button [disabled]="!habilitado">Votar</button>
+  <button (click)="aumentarVoto()" [disabled]="!habilitado">Votar</button>
 </div>

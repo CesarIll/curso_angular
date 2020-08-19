@@ -12,52 +12,52 @@ export class AppComponent implements OnInit{
   inhabilitados = 0;
   votantes = [
     {
-      nombre: "juan",
+      nombre: 'juan',
       edad: 13,
       habilitado: true
     },
     {
-      nombre : "marco",
+      nombre : 'marco',
       edad : 54,
       habilitado : false
     },
     {
-      nombre : "julia",
+      nombre : 'julia',
       edad : 78,
       habilitado : true
     },
     {
-      nombre : "maria",
+      nombre : 'maria',
       edad : 90,
       habilitado : false
     },
     {
-      nombre : "marta",
+      nombre : 'marta',
       edad : 56,
       habilitado : true
     },
     {
-      nombre : "jorge",
+      nombre : 'jorge',
       edad : 33,
       habilitado : true
     },
     {
-      nombre : "isela ",
+      nombre : 'isela',
       edad : 10,
       habilitado : false
     },
     {
-      nombre : "omar ",
+      nombre : 'omar',
       edad : 34,
       habilitado : false
     },
     {
-      nombre : "juana ",
+      nombre : 'juana',
       edad : 5,
       habilitado : true
     },
     {
-      nombre : "julio ",
+      nombre : 'julio',
       edad : 75,
       habilitado : false
     },
@@ -71,5 +71,9 @@ export class AppComponent implements OnInit{
           this.inhabilitados++;
         }
       }
+    }
+
+    aumentarVotos(event) {
+      this.votos++;
     }
 }

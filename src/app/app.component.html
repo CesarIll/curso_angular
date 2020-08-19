@@ -1,18 +1,21 @@
 <h1>ELECCIONES</h1>
-<div style="border: 1px solid blue;background: dodgerblue">Votos: {{votos}}, Habilitados: {{habilitados}}, Inhabilitados: {{inhabilitados}}</div>
-<div *ngIf="habilitados===votos" style="border: 1px solid green; background: lawngreen">TODOS YA VOTARON</div>
-<div>Mayores 65</div>
+<div style="border: 1px solid blue;background: dodgerblue; width: 300px; margin: 10px; text-align: center">Votos: {{votos}}, Habilitados: {{habilitados}}, Inhabilitados: {{inhabilitados}}</div>
+<div *ngIf="habilitados===votos" style="border: 1px solid green; background: lawngreen; width: 300px; margin: 10px; text-align: center">TODOS YA VOTARON</div>
+<h2>Mayores 65</h2>
 <div *ngFor="let votante of votantes">
-  <app-votante *ngIf="votante.edad > 65" [nombre]="votante.nombre"
+  <app-votante *ngIf="votante.edad > 65"
+               [nombre]="votante.nombre"
                [edad]="votante.edad"
-               [habilitado]="votante.habilitado">
+               [habilitado]="votante.habilitado"
+               (emitirVoto)="aumentarVotos($event)">
   </app-votante>
 </div>
 
-<div>Menores 65</div>
+<h2>Menores 65</h2>
 <div *ngFor="let votante of votantes">
   <app-votante *ngIf="votante.edad <= 65" [nombre]="votante.nombre"
                [edad]="votante.edad"
-               [habilitado]="votante.habilitado">
+               [habilitado]="votante.habilitado"
+               (emitirVoto)="aumentarVotos($event)">
   </app-votante>
 </div>
