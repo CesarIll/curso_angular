@@ -18,6 +18,10 @@ import { ImpurePipe } from './pipes/impure.pipe';
 import { NgColorDirective } from './directives/ng-color.directive';
 import { GetSetInputComponent } from './components/get-set-input/get-set-input.component';
 import { NgFocusDirective } from './directives/ng-focus.directive';
+import { AboutComponent } from './components/Routing/about/about.component';
+import { AdminComponent } from './components/Routing/admin/admin.component';
+import { HomeComponent } from './components/Routing/home/home.component';
+import {AppRouting} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { NgFocusDirective } from './directives/ng-focus.directive';
     ImpurePipe,
     NgColorDirective,
     GetSetInputComponent,
-    NgFocusDirective
+    NgFocusDirective,
+    AboutComponent,
+    AdminComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,8 @@ import { NgFocusDirective } from './directives/ng-focus.directive';
     PersonaModule,
     ProductModule,
     AdminModule,
-    UserModule
+    UserModule,
+    AppRouting
   ],
   providers: [],
   bootstrap: [AppComponent]
