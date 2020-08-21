@@ -22,6 +22,8 @@ import { AboutComponent } from './components/Routing/about/about.component';
 import { AdminComponent } from './components/Routing/admin/admin.component';
 import { HomeComponent } from './components/Routing/home/home.component';
 import {AppRouting} from './app.routing';
+import { Home1Component } from './components/Routing/home1/home1.component';
+import { Home2Component } from './components/Routing/home2/home2.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {AppRouting} from './app.routing';
     NgFocusDirective,
     AboutComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    Home1Component,
+    Home2Component
   ],
   imports: [
     BrowserModule,
