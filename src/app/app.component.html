@@ -1,2 +1,29 @@
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-<mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0f5d24;">
+  <a class="navbar-brand" href="#">Pedidos Ya</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLinkActive="active"
+           routerLink="home">
+          Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLinkActive="active"
+           routerLink="admin">
+          Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLinkActive="active"
+           routerLink="list">
+          List</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
