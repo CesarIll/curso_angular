@@ -1,5 +1,33 @@
-<button routerLink="/pages">Login</button>
+  <!--Ejemplo 1-->
+<!--<div style="display: flex; flex-direction: column;">
+  <input type="text" [(ngModel)]="username">
+  <input type="password" [(ngModel)]="password">
+</div>
+<button (click)="onLogin()">Login</button>-->
 
+  <!--Ejemplo 2-->
+<!--<div>
+  <form #form="ngForm" style="display: flex; flex-direction: column;">
+    <input type="text" name="User" ngModel>
+    <input type="password" name="Password" ngModel>
+  </form>
+</div>
+<button (click)="onLogin2(form)">Login 2</button>-->
+
+  <!--Ejemplo 3-->
+<div>
+  <form (ngSubmit)="onLogin2(form)" #form="ngForm" style="display: flex; flex-direction: column;">
+    <input type="text" name="User" ngModel>
+    <input type="password" name="Password" ngModel>
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
+
+
+
+
+<!--<button routerLink="/pages">Login</button>
 <button (click)="sw = !sw">SW</button>
 <p>{{sw}}</p>
-<p *appNgElse="sw">Si es falso</p>
+<p *appNgElse="sw">Si es falso</p>-->
