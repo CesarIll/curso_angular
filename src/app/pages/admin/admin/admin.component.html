@@ -4,8 +4,22 @@
 
   <!--Ejemplo 2-->
 <form [formGroup]="productForm" style="display: flex; flex-direction: column">
-  <input formControlName="name" type="text">
   <input formControlName="description" type="text">
+
+  <div *ngIf="productForm.get('description').invalid &&
+              (productForm.get('description').touched ||
+               productForm.get('description').dirty)"
+       class="alert alert-danger">
+
+    <div *ngIf="productForm.get('description').errors.required">
+      Description is required
+    </div>
+    <div *ngIf="productForm.get('description').errors.minlength">
+      Description must have 10 characters minimum
+    </div>
+  </div>
+
+  <input formControlName="name" type="text">
   <input formControlName="imageUrl" type="text">
   <input formControlName="ownerId" type="text">
   <input formControlName="price" type="text">
