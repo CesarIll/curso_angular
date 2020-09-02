@@ -9,12 +9,17 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit, OnDestroy {
-
+  products = [];
   productForm: FormGroup;
   // nameControl = new FormControl();
-  prodcutSubs: Subscription;
+  productSubs: Subscription;
+  productGetSubs: Subscription;
   constructor(private formBuilder: FormBuilder,
-              private productService: ProductService) { }
+              private productService: ProductService) {
+    this.productGetSubs = this.productService.getProducts().subscribe(res => {
+      Object.entries(res).map(p => this.products.push(p[1]));
+    });
+  }
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
@@ -30,12 +35,12 @@ export class AdminComponent implements OnInit, OnDestroy {
   }*/
   onEnviar2(): void{
     console.log('Form group', this.productForm.value);
-    this.prodcutSubs = this.productService.addProduct(this.productForm.value).subscribe(res => {
+    this.productSubs = this.productService.addProduct(this.productForm.value).subscribe(res => {
       console.log('Respuesta: ', res);
     }, error => console.log('Error de servidor'));
   }
   ngOnDestroy(): void {
-    this.prodcutSubs ? this.prodcutSubs.unsubscribe() : '';
+    this.productSubs ? this.productSubs.unsubscribe() : '';
   }
 
 }
