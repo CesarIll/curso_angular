@@ -30,6 +30,18 @@ export class AdminComponent implements OnInit, OnDestroy {
       price: '',
     });
   }
+  loadProduct(): void{
+    this.products = [];
+    this.productGetSubs = this.productService.getProducts().subscribe(res => {
+      Object.entries(res).map((p: any) => this.products.push({id: p[0], ...p[1]}));
+    });
+  }
+  onDelete(id: any): void {
+    this.productService.deleteProduct(id).subscribe(res => {
+      console.log('Response', res);
+      this.loadProduct();
+    }, error => console.log('Error'));
+  }
   /*onEnviar(): void {
     console.log('Valor: ', this.nameControl.value);
   }*/
