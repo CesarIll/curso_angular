@@ -14,6 +14,9 @@ export class AdminComponent implements OnInit, OnDestroy {
   // nameControl = new FormControl();
   productSubs: Subscription;
   productGetSubs: Subscription;
+  productDeleteSubs: Subscription;
+  productUpdateSubs: Subscription;
+  idEdit: any;
   constructor(private formBuilder: FormBuilder,
               private productService: ProductService) {
     this.productGetSubs = this.productService.getProducts().subscribe(res => {
@@ -41,6 +44,16 @@ export class AdminComponent implements OnInit, OnDestroy {
       console.log('Response', res);
       this.loadProduct();
     }, error => console.log('Error'));
+  }
+  onEdit(product): void {
+    this.idEdit = product.id;
+    this.productForm.patchValue(product);
+  }
+  onUpdateProduct(): void {
+    this.productUpdateSubs = this.productService.updateProduct(this.idEdit, this.productForm.value).subscribe(res => {
+        console.log('Response', res);
+        this.loadProduct();
+      }, error => console.log('Error update en servidor'));
   }
   /*onEnviar(): void {
     console.log('Valor: ', this.nameControl.value);

@@ -14,6 +14,9 @@ export class ProductService {
     return this.http.post('https://first-angular-project-7b6f5.firebaseio.com/products.json', product);
   }
   public deleteProduct(id: any): Observable<any> {
-    return this.http.delete(`https://first-angular-project-7b6f5.firebaseio.com/${id}.json`);
+    return this.http.delete(`https://first-angular-project-7b6f5.firebaseio.com/products/${id}.json`);
+  }
+  public updateProduct(id: any, product: any): Observable<any> {
+    return this.http.put(`https://first-angular-project-7b6f5.firebaseio.com/products/${id}.json`, product);
   }
 }
