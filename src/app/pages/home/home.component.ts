@@ -1,6 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ProductService} from '../../../services/product.service';
+import {ProductService} from '../../shared/services/product.service';
 import {Subscription} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {AddProduct} from './store/home.actions';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   products = [];
   productSubs: Subscription;
 
-  constructor(private productService: ProductService) {
+  constructor(private store: Store<any>,
+              private productService: ProductService) {
   }
 
   ngOnInit(): void {
@@ -23,5 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.productSubs.unsubscribe();
   }
-
+  onBuy(product): void {
+    this.store.dispatch(AddProduct({product: product}));
+  }
 }
