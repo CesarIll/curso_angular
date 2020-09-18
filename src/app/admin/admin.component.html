@@ -39,6 +39,12 @@
     Veterinaria
   </h1>
   <button mat-button (click)="onLogout()">LOGOUT</button>
+
+  <div style="background-color: green;">
+    <input #box type="text" placeholder="Query">
+    <button (click)="searchByName(box.value)">Search</button>
+  </div>
+
 </div>
 
 <mat-drawer-container class="example-container" autosize>
@@ -115,7 +121,7 @@
          class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
          style="padding: 50px; display: flex; justify-content: center;">
 
-      <mat-card *ngIf="animal.vaccinated === true || animal.vaccinated === 'true'" class="example-card" style="background: {{animal.age < 3 ? 'orange' : 'red'}};">
+      <mat-card *ngIf="(animal.vaccinated === true || animal.vaccinated === 'true') && (query== null || animal.name.includes(query))" class="example-card" style="background: {{animal.age < 3 ? 'orange' : 'red'}};">
         <mat-card-header>
           <mat-card-title>Nombre: {{animal.name | uppercase }}</mat-card-title>
         </mat-card-header>
@@ -141,7 +147,7 @@
          class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
          style="padding: 50px; display: flex; justify-content: center;">
 
-      <mat-card *ngIf="animal.vaccinated === false || animal.vaccinated === 'false'" class="example-card" style="background: {{animal.age < 3 ? 'orange' : 'red'}};">
+      <mat-card *ngIf="(animal.vaccinated === false || animal.vaccinated === 'false') && (query== null || animal.name.includes(query))" class="example-card" style="background: {{animal.age < 3 ? 'orange' : 'red'}};">
         <mat-card-header>
           <mat-card-title>Nombre: {{animal.name | uppercase}}</mat-card-title>
         </mat-card-header>

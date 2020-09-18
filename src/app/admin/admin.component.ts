@@ -19,8 +19,9 @@ export class AdminComponent implements OnInit, OnDestroy {
   animalDeleteSubs: Subscription;
   animalUpdateSubs: Subscription;
   idEdit: any;
+  query: string;
   constructor(private formBuilder: FormBuilder,
-              private productService: AnimalsService,
+              private animalService: AnimalsService,
               private authService: AuthService) {}
   ngOnInit(): void {
     this.animalForm = this.formBuilder.group({
@@ -34,19 +35,16 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
   loadAnimals(): void{
     this.animals = [];
-    this.animalGetSubs = this.productService.getAnimals().subscribe(res => {
+    this.animalGetSubs = this.animalService.getAnimals().subscribe(res => {
       Object.entries(res).map((p: any) => this.animals.push({id: p[0], ...p[1]}));
+      this.animalsVaccinated = this.animals.filter(s => (s.vaccinated === 'true' || s.vaccinated === true));
+      this.animalsVaccinated = this.animals.filter(s => (s.vaccinated === 'false' || s.vaccinated === false));
+      console.log('Vaccinated', this.animalsVaccinated);
+      console.log('Not vaccinated', this.animalsNotVaccinated);
     });
-    this.animalsVaccinated = [];
-    this.animalsNotVaccinated = [];
-    this.animalsVaccinated.push(this.animals.filter(animal => animal.value.vaccinated === true));
-    this.animalsNotVaccinated.push(this.animals.filter(animal =>  animal.value.vaccinated === false));
-    console.log('Animales', this.animals);
-    console.log('Animales vacunados', this.animalsVaccinated);
-    console.log('Animales no vacunados', this.animalsNotVaccinated);
   }
   onDeleteAnimal(id: any): void {
-    this.animalDeleteSubs = this.productService.deleteAnimals(id).subscribe(res => {
+    this.animalDeleteSubs = this.animalService.deleteAnimals(id).subscribe(res => {
       console.log('Respuesta', res);
       this.loadAnimals();
     }, error => console.log('Error delete'));
@@ -57,14 +55,14 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
   onUpdateAnimal(): void {
     console.log('Valor Animal', this.animalForm.value);
-    this.animalUpdateSubs = this.productService.updateAnimals(this.idEdit, this.animalForm.value).subscribe(res => {
+    this.animalUpdateSubs = this.animalService.updateAnimals(this.idEdit, this.animalForm.value).subscribe(res => {
       console.log('Respuesta', res);
       this.loadAnimals();
     }, error => console.log('Error update'));
   }
   onCreateAnimal(): void{
     console.log('Form group', this.animalForm.value);
-    this.animalSubs = this.productService.addAnimals(this.animalForm.value).subscribe(res => {
+    this.animalSubs = this.animalService.addAnimals(this.animalForm.value).subscribe(res => {
       console.log('Respuesta: ', res);
       this.loadAnimals();
     }, error => console.log('Error add'));
@@ -78,5 +76,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.animalUpdateSubs ? this.animalUpdateSubs.unsubscribe() : '';
     this.animalDeleteSubs ? this.animalDeleteSubs.unsubscribe() : '';
   }
-
+  public searchByName(value): void {
+    this.query = value.toLowerCase();
+  }
 }
