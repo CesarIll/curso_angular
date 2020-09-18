@@ -8,14 +8,15 @@ import {
 } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import {AuthService} from '../services/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = localStorage.getItem('auth');
+    const token = this.authService.getToken();
     if (token){
       request = request.clone({
         url: request.url.indexOf('?') > -1 ? `${request.url}&auth=${token}` : `${request.url}?auth=${token}`
@@ -31,7 +32,7 @@ export class AuthInterceptor implements HttpInterceptor {
     );
   }
   private handle401Error(): Observable<any> {
-    // this.authService.logout();
+    this.authService.logout();
     return throwError('ERROR 401');
   }
 }

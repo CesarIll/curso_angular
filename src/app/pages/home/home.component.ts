@@ -5,7 +5,6 @@ import {Store} from '@ngrx/store';
 import {AddProduct} from './store/home.actions';
 
 @Component({
-  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -27,6 +26,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.productSubs.unsubscribe();
   }
   onBuy(product): void {
-    this.store.dispatch(AddProduct({product: product}));
+    this.store.dispatch(AddProduct({product: 'hola'}));
   }
 }

@@ -12,9 +12,9 @@ export const initialState: HomeState = {
 };
 
 const featureReducer = createReducer(
-  initialState,
+  initialState/*,
   on(AddProduct, (state, {product}) => ({...state, items: state.items.push(product)}))
-);
+*/);
 
 export function reducer(state: HomeState, action: Action): any {
   return featureReducer(state, action);

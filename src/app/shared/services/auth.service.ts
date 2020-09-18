@@ -2,16 +2,16 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
   url = environment.auth.apiBaseUrl;
   key = environment.auth.key;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private router: Router) {}
   public login(body: any): Observable<any> {
     return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body).pipe(
       map((res: any) => {
@@ -21,7 +21,7 @@ export class AuthService {
     );
   }
   private authSuccess(token: string, userId: string): void {
-    localStorage.setItem('auth', token);
+    localStorage.setItem('token', token);
     localStorage.setItem('userId', userId);
   }
   public getToken(): string{
@@ -37,6 +37,6 @@ export class AuthService {
   public logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('userID');
-    // this.router.navigate(['login']);
+    this.router.navigate(['login']);
   }
 }

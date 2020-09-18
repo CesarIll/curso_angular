@@ -9,10 +9,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtools, StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {environment} from '../environments/environment.prod';
 import {metaReducers} from './core/meta';
 import {reducers} from './core';
 import {AuthGuard} from './shared/guards/auth.guard';
+import {AuthService} from './shared/services/auth.service';
+import {environment} from '../environments/environment';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -35,9 +36,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({name: 'Angular Couse', logOnly: environment.production})
+    StoreDevtoolsModule.instrument({name: 'Angular Course', logOnly: environment.production})
   ],
   providers: [
+    AuthService,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
