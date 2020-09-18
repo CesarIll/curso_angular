@@ -7,14 +7,14 @@ export interface HomeState {
 }
 
 export const initialState: HomeState = {
-  items: {},
+  items: [],
   totalAmount: 0
 };
 
 const featureReducer = createReducer(
-  initialState/*,
-  on(AddProduct, (state, {product}) => ({...state, items: state.items.push(product)}))
-*/);
+  initialState,
+  on(AddProduct, (state, {product}) => ({...state, items: state.items.concat([product])}))
+);
 
 export function reducer(state: HomeState, action: Action): any {
   return featureReducer(state, action);
