@@ -2,15 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
-import {MatCardModule} from '@angular/material/card';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {AnimalsService} from './services/animals.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
+
+const routes: Routes = [
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
+  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)}
+];
 
 @NgModule({
   declarations: [
@@ -19,18 +20,16 @@ import {AnimalsService} from './services/animals.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule
+    RouterModule.forRoot(routes)
   ],
   providers: [
-    AnimalsService
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
